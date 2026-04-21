@@ -13,18 +13,18 @@ public class Main {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("logs.txt", true));
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
-            LocalDateTime rightNow = LocalDateTime.now();
+            String rightNow = LocalDateTime.now().format(formatter);
 
-            bufferedWriter.write("\nStarted program");
+            bufferedWriter.write("\n" + rightNow + "Started program");
 
             String input;
             do {
                 System.out.print("what would you like to search (press x to quit): ");
                 input = scanner.nextLine();
-                bufferedWriter.write("\n" + input);
+                bufferedWriter.write("\n" + rightNow + " search: " + input);
 
             } while (!input.equalsIgnoreCase("x"));
-            bufferedWriter.write("\nEnded program");
+            bufferedWriter.write("\n" + rightNow + "Ended program");
             bufferedWriter.close();
 
         }catch (Exception ex){
