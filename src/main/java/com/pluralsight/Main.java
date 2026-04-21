@@ -12,15 +12,20 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("logs.txt", true));
 
-            LocalDateTime rightNow = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+            LocalDateTime rightNow = LocalDateTime.now();
 
-            System.out.println("what would you like to search (press x to quit): ");
-            String newLine = scanner.nextLine();
-            bufferedWriter.write(newLine);
+            bufferedWriter.write("\nStarted program");
 
+            String input;
+            do {
+                System.out.print("what would you like to search (press x to quit): ");
+                input = scanner.nextLine();
+                bufferedWriter.write("\n" + input);
+
+            } while (!input.equalsIgnoreCase("x"));
+            bufferedWriter.write("\nEnded program");
             bufferedWriter.close();
-
 
         }catch (Exception ex){
             System.err.println("something went wrong");
